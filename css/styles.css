@@ -1,0 +1,184 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.ulist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.ulist a {
+  color: black;
+}
+
+.title-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+.search-bar input {
+  width: 0.1rem;
+  transition: width 1s;
+}
+.search-bar input:hover {
+  width: 5rem;
+}
+.search-bar button {
+  border: none;
+  background-color: white;
+}
+
+.logo-img {
+  justify-self: center;
+}
+
+.login-cart {
+  display: flex;
+  align-items: center;
+}
+
+.option-menu {
+  align-self: center;
+  margin: 1rem;
+}
+
+.shortcuts {
+  height: 10rem;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.shortcut-card {
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.shortcut-card img {
+  width: auto;
+  height: 5rem;
+  border-radius: 50%;
+  border: 3px solid #ffb7ce;
+}
+.shortcut-card p {
+  font-size: 13px;
+  margin: 0;
+}
+
+.destacado-preview {
+  height: 40rem;
+  background-image: url("../../images/botas.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.destacado-preview button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  width: 9rem;
+  height: 3rem;
+  font-size: 1.1rem;
+}
+
+.previews-container {
+  padding: 0 2rem;
+}
+
+.calzado-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.calzado-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 28rem;
+  justify-content: center;
+  column-gap: 1rem;
+}
+.calzado-cards-container p {
+  font-weight: bolder;
+  margin: 0;
+}
+
+.prices {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.prices b {
+  color: #ffb7ce;
+  font-size: 20px;
+}
+
+.vermas-button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  width: 8.5rem;
+  height: 3rem;
+  font-size: 1.1rem;
+  align-self: center;
+  margin: 1rem;
+}
+
+.info-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 8rem;
+  padding: 1rem 0;
+}
+.info-section b {
+  font-size: 0.8rem;
+}
+.info-section p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.info-card svg {
+  border-radius: 50%;
+  background-color: #ffb7ce;
+  color: white;
+  padding: 2px;
+  margin: 1rem;
+}
+
+* {
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */

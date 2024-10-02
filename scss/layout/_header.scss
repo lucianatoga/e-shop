@@ -1,0 +1,56 @@
+
+a{
+    color: black;
+    text-decoration: none;
+}
+header{
+    padding:  0 3rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+.ulist{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    a{
+        color: black;
+    }
+}
+//first section header
+.title-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+    input{
+        width: 0.1rem;
+        transition: width 1s;
+        &:hover{
+            width: 5rem;
+        }
+    }
+    button{
+        border: none;
+        background-color:white;
+        
+    }
+}
+.logo-img{
+    justify-self: center;
+}
+.login-cart{
+    display: flex;
+    align-items: center;
+}
+//secnd section header
+.option-menu{
+    align-self: center;
+    margin: 1rem;
+}
