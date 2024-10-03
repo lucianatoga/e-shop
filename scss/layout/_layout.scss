@@ -1,3 +1,4 @@
+
 .shortcuts{
     height: 10rem;
     display: flex;
@@ -17,7 +18,7 @@
         width: auto;
         height: 5rem;
         border-radius: 50%;
-        border: 3px solid #ffb7ce;
+        border: 3px solid $rosa;
     }
     p{
         font-size: 13px;
@@ -51,11 +52,22 @@
 .previews-container{
     padding: 0 2rem;
 }
+.whatsapp{
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    color: white;
+    background-color: rgb(51, 190, 51);
+    border-radius: 50%;
+}
 .calzado-section{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 0.5rem;
+    a{
+        align-self: center;
+    }
 
 }
 .calzado-cards-container{
@@ -74,7 +86,7 @@
     gap: 1rem;
     align-items: center;
     b{
-        color: #ffb7ce;
+        color: $rosa;
         font-size: 20px;
     }
 }
@@ -86,7 +98,6 @@
     width: 8.5rem;
     height: 3rem;
     font-size: 1.1rem;
-    align-self: center;
     margin: 1rem;
 }
 .info-section{
@@ -109,7 +120,7 @@
     justify-content: center;
     svg{
         border-radius: 50%;
-        background-color: #ffb7ce;
+        background-color: $rosa;
         color: white;
         padding: 2px;
         margin: 1rem;
