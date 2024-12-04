@@ -12,18 +12,37 @@
 }
 
 //banners
-.banners{
-    position: static;
+
+.inner-banner{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    animation: move 18s reverse linear infinite;
+}
+@keyframes move{
+    from{
+        transform: translateX(-78%);
+    }
+    to{
+        transform: translateX(100%);
+    }
 }
 .envios{
-    height: 2.5rem;
+    @extend %banner;
     background-color: $rosa;
 }
+.envios p{
+    @extend %p-banner;
+    text-shadow: 150rem 0 white, 100rem 0 white, 50rem 0 white, -50rem 0 white, -100rem 0 white;
+}
 .pagos{
-    height: 2.5rem;
+    @extend %banner;
     background-color: black;
 }
-
+.pagos p{
+    @extend %p-banner;
+    text-shadow: 210rem 0 white, 140rem 0 white, 70rem 0 white, -70rem 0 white, -140rem 0 white;
+}
 
 header{
     height: 9rem;
@@ -44,22 +63,42 @@ header{
     align-items: center;
     margin: 0.5rem;
 }
-.search-bar{
-    display: flex;
+.simple-button{
+    border: none;
+    background:none;
+}
+.search-section{
+    display: none;
+    height: 9rem;
+    width: 100%;
+    background-color: white;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    gap: 1rem;
     input{
-        width: 0.1rem;
-        transition: width 1s;
-        &:hover{
-            width: 5rem;
-        }
+        width: 20rem;
     }
-    button{
-        border: none;
-        background-color:white;
-        
+    input:hover{
+        border: 2px solid black
     }
 }
+// .search-bar{
+//     display: flex;
+//     align-items: center;
+//     input{
+//         width: 0.1rem;
+//         transition: width 1s;
+//         &:hover{
+//             width: 5rem;
+//         }
+//     }
+//     button{
+//         border: none;
+//         background-color:white;
+        
+//     }
+// }
 .logo-img{
     justify-self: center;
 }

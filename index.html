@@ -11,18 +11,21 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <section role="banner" class="banners">
-        <div class="envios"></div>
-        <div class="pagos"></div>
+    <section role="banner">
+        <section class="envios">
+            <div class="inner-banner"><p>SHOP NOW </p><p>&#183</p><p>ENVÍOS SUPER RÁPIDOS!</p><p>&#183</p><p>ENVÍOS GRATIS EN PEDIDOS MAYORES A $5500</p><p>&#183</p></div>
+        </section>
+        <section class="pagos">
+            <div class="inner-banner"><p>PAGO CON TRANSFERENCIA</p><p>&#183</p><p>PAGO CON MERCADO PAGO</p><p>&#183</p><p>PAGO CON LINK TARJETA</p><p>&#183</p><p>PAGO AL MOMENTO DE RETIRO</p><p>&#183</p></div>
+        </section>
     </section>
     <header>
         <section class="title-buttons">
-            <form class="search-bar" role="search">
-                <input type="search" placeholder="buscar">
-                <button type="submit" ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <button class="simple-button" id="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg></button>
-            </form>
+                </svg>
+            </button>
             <img class="logo-img" src="./images/RELIEVE.avif" alt="logo de la marca que es la palabra RELIEVE en mayúsculas y negrita">
             <nav class="login-cart">
                 <ul class="ulist">
@@ -49,6 +52,17 @@
         </section>
     </header>
     <main>
+        <section class="search-section" id="search-section">
+            <form>
+                <input type="search" placeholder="Búsqueda">
+                <button type="submit" class="simple-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg></button>
+            </form>
+            <button class="simple-button" id="close-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+              </svg></button>
+        </section>
         <section class="shortcuts">
             <div class="shortcut-card">
                 <!-- <a href="https://www.google.com/">google</a> -->
@@ -219,6 +233,7 @@
             </nav>
         </section>
     </footer>
+    <script src="./index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

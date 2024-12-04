@@ -1,3 +1,17 @@
+.pagos, .envios {
+  height: 2.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.pagos p, .envios p {
+  font-size: smaller;
+  color: white;
+  white-space: nowrap;
+  margin: 0;
+}
+
 .ulist {
   margin: 0;
   padding: 0;
@@ -10,18 +24,35 @@
   text-decoration: none;
 }
 
-.banners {
-  position: static;
+.inner-banner {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  animation: move 18s reverse linear infinite;
 }
 
+@keyframes move {
+  from {
+    transform: translateX(-78%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
 .envios {
-  height: 2.5rem;
   background-color: #ffb7ce;
 }
 
+.envios p {
+  text-shadow: 150rem 0 white, 100rem 0 white, 50rem 0 white, -50rem 0 white, -100rem 0 white;
+}
+
 .pagos {
-  height: 2.5rem;
   background-color: black;
+}
+
+.pagos p {
+  text-shadow: 210rem 0 white, 140rem 0 white, 70rem 0 white, -70rem 0 white, -140rem 0 white;
 }
 
 header {
@@ -44,20 +75,26 @@ header {
   margin: 0.5rem;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-}
-.search-bar input {
-  width: 0.1rem;
-  transition: width 1s;
-}
-.search-bar input:hover {
-  width: 5rem;
-}
-.search-bar button {
+.simple-button {
   border: none;
+  background: none;
+}
+
+.search-section {
+  display: none;
+  height: 9rem;
+  width: 100%;
   background-color: white;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.search-section input {
+  width: 20rem;
+}
+.search-section input:hover {
+  border: 2px solid black;
 }
 
 .logo-img {
