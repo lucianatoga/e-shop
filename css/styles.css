@@ -78,6 +78,11 @@ header {
 .simple-button {
   border: none;
   background: none;
+  padding: 0;
+}
+.simple-button :hover {
+  width: 19px;
+  height: 19px;
 }
 
 .search-section {
@@ -88,13 +93,36 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+}
+.search-section label {
+  position: absolute;
+  left: 19.5rem;
+  top: 3.8rem;
+  pointer-events: none;
+  color: rgb(77, 77, 77);
 }
 .search-section input {
-  width: 20rem;
+  height: 3rem;
+  width: 46rem;
+  border: 1px solid black;
+  padding: 0 1rem;
+  color: black;
+  outline: none;
+  font-size: 0.8rem;
+}
+.search-section input:focus {
+  border: 2px solid black;
 }
 .search-section input:hover {
   border: 2px solid black;
+}
+.search-section button {
+  color: rgb(54, 54, 54);
+}
+
+.search-section form > button {
+  position: relative;
+  right: 2.5rem;
 }
 
 .logo-img {

@@ -66,6 +66,11 @@ header{
 .simple-button{
     border: none;
     background:none;
+    padding: 0;
+    :hover{
+        width: 19px;
+        height: 19px;
+    }
 }
 .search-section{
     display: none;
@@ -75,13 +80,40 @@ header{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    label{
+        position: absolute;
+        left: 19.5rem;
+        top: 3.8rem;
+        pointer-events: none;
+        color: rgb(77, 77, 77);
+    }
     input{
-        width: 20rem;
+        height: 3rem;
+        width: 46rem;
+        border: 1px solid black;
+        padding: 0 1rem;
+        color: black;
+        outline: none;
+        font-size: .8rem;
+    }
+    // input:focus~label{
+    //     top: 3.5rem;
+    //     font-size: 10px;
+    // }
+    input:focus{
+        border: 2px solid black;
     }
     input:hover{
-        border: 2px solid black
+        border: 2px solid black;
     }
+    button{
+        color: rgb(54, 54, 54);
+    }
+}
+
+.search-section form > button{
+    position: relative;
+    right: 2.5rem;
 }
 // .search-bar{
 //     display: flex;
