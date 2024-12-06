@@ -1,4 +1,7 @@
-
+.disabled{
+    pointer-events: none;
+    filter: blur(5px);
+}
 .shortcuts{
     height: 12rem;
     display: flex;
