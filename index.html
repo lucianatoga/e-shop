@@ -27,24 +27,54 @@
                 </svg>
             </button>
             <img class="logo-img" src="./images/RELIEVE.avif" alt="logo de la marca que es la palabra RELIEVE en mayúsculas y negrita">
-            <nav class="login-cart">
-                <ul class="ulist">
-                    <li><a href="https://www.google.com.uy/"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <div class="login-cart">
+                <button class="simple-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                    </svg></a></li>
-                    <li><a href="https://www.google.com.uy/"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                    </svg>
+                </button>
+                <button class="simple-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-                    </svg></a></li>
-                </ul>
-            </nav>
+                    </svg>
+                </button>
+            </div>
         </section>
         <section class="option-menu" id="option-menu-section">
             <nav>
-                <ul class="ulist">
-                    <li><a href="#" role="button">CALZADO</a></li>
-                    <li><a href="#" role="button">AROS</a></li>
-                    <li><a href="#" role="button">ANILLOS</a></li>
-                    <li><a href="#" role="button">COLLARES</a></li>
+                <ul class="ulist navbar">
+                    <li>
+                        <a href="#" role="button">CALZADO<ion-icon name="chevron-down-outline"></ion-icon></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Botas</a></li>
+                            <li><a href="#">Calzado casual</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" role="button">AROS<ion-icon name="chevron-down-outline"></ion-icon></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Todos</a></li>
+                            <li><a href="#">Plata 925</a></li>
+                            <li><a href="#">Acero</a></li>
+                            <li><a href="#">Trepadores</a></li>
+                            <li><a href="#">Piercings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" role="button">ANILLOS<ion-icon name="chevron-down-outline"></ion-icon></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Todos</a></li>
+                            <li><a href="#">Plata 925</a></li>
+                            <li><a href="#">Acero</a></li>
+                            <li><a href="#">Resina</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" role="button">COLLARES<ion-icon name="chevron-down-outline"></ion-icon></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#">Todos</a></li>
+                            <li><a href="#">Plata 925</a></li>
+                            <li><a href="#">Acero</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#" role="button">CARTERAS</a></li>
                     <li><a href="#" role="button">ACCESORIOS</a></li>
                 </ul>
@@ -54,7 +84,7 @@
             <form>
                 <input type="text" name="search" id="search">
                 <label for="search">Búsqueda</label>
-                <button type="submit" class="simple-button"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <button type="submit" class="simple-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                 </svg></button>
             </form>
@@ -64,62 +94,41 @@
         </section>
     </header>
     <main>
-        <section class="search-section" id="search-section">
-            <form>
-                <input type="text" name="search" id="search">
-                <label for="search">Búsqueda</label>
-                <button type="submit" class="simple-button"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg></button>
-            </form>
-            <button class="simple-button" id="close-button"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-              </svg></button>
-        </section>
         <section class="shortcuts">
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/bota1.jpg" alt="bota marrón de cuero media caña" width="100%" height="100%">
+                <a href="#"><img src="./images/bota1.jpg" alt="bota marrón de cuero media caña" width="100%" height="100%"></a>
                 <p>botas</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/aros-plata.jfif" alt="bota marrón de cuero media caña" >
+                <a href="#"><img src="./images/aros-plata.jfif" alt="bota marrón de cuero media caña" ></a>
                 <p>aros de plata</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/aros-acero.jfif" alt="">
+                <a href="#"><img src="./images/aros-acero.jfif" alt=""></a>
                 <p>aros de acero</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/cartera.jfif" alt="">
+                <a href="#"><img src="./images/cartera.jfif" alt=""></a>
                 <p>carteras</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/calzado.jpg" alt="">
+                <a href="#"><img src="./images/calzado.jpg" alt=""></a>
                 <p>calzado</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/alhajero.webp" alt="">
+                <a href="#"><img src="./images/alhajero.webp" alt=""></a>
                 <p>alhajeros</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/accesorios.jpg" alt="">
+                <a href="#"><img src="./images/accesorios.jpg" alt=""></a>
                 <p>accesorios de pelo</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images/beauty-blender.jfif" alt="">
+                <a href="#"><img src="./images/beauty-blender.jfif" alt=""></a>
                 <p>beauty</p>
             </div>
             <div class="shortcut-card">
-                <!-- <a href="https://www.google.com/">google</a> -->
-                <img src="./images//bufanda.jpg" alt="">
+                <a href="#"><img src="./images//bufanda.jpg" alt=""></a>
                 <p>bufandas</p>
             </div>
         </section>
@@ -248,5 +257,7 @@
     </footer>
     <script src="./index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
