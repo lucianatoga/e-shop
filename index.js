@@ -1,5 +1,6 @@
 //SEARCH SECTION//
 const search_section=document.getElementById("search-section");
+let search_visible=false;
 function showSearchSection(){
     document.getElementById("title-buttons-section").style.display="none";
     document.getElementById("option-menu-section").style.display="none";
@@ -8,6 +9,7 @@ function showSearchSection(){
     search_section.style.top="0";
     document.querySelector("main").classList.add("disabled");
     document.querySelector("body").style.overflow="hidden";
+    search_visible=true;
 }
 function closeSearchSection(){
     search_section.style.display="none";
@@ -16,11 +18,18 @@ function closeSearchSection(){
     document.querySelector("main").classList.remove("disabled");
     document.querySelector("body").style.overflow="auto";
     document.querySelector("section.search-section form").reset();
+    search_visible=false;
 }
 const search_button=document.getElementById("search-button");
-search_button.addEventListener('click', showSearchSection);
+search_button.addEventListener('click', function(event){
+    showSearchSection();
+    event.stopPropagation();
+});
 const close_button=document.getElementById("close-button");
-close_button.addEventListener('click', closeSearchSection)
+close_button.addEventListener('click', function(event){
+    closeSearchSection();
+    event.stopPropagation();
+})
 
 const search_bar_input=document.querySelector('input[name="search"]');
 search_bar_input.addEventListener('focus', ()=>{
@@ -63,6 +72,7 @@ function showHideDropdown(){
         dropdown_visible=false;
     }
 }
+// CLOSE DROPDOWNS WHEN CLICKING OUTSIDE
 window.addEventListener('click', function(event){
     if(dropdown_visible===true && !links.includes(event.target)){
         
@@ -73,14 +83,24 @@ window.addEventListener('click', function(event){
                 arrow.style.rotate="360deg";
             }
         })
-            
     }
-})
+    // CLOSE SEARCH SECTION WHEN CLICKING OUTSIDE
+    if(event.target!==search_section && event.target!==search_button && !search_section.contains(event.target) && search_visible===true){
+        closeSearchSection();
+    }
+});
 
-//HOVER OVER BUTTONS
-// const simple_buttons=document.querySelectorAll("button.simple-button");
-// simple_buttons.forEach(button=>button.addEventListener('mousemove', function(event){
-//     const button=event.target;
-//     button.style.width=button.width+"2px";
-//     button.style.height=button.height+"2px";
-// }))
+//HIDE HEADER WHEN SCROLLING UP
+const header=document.querySelector('header');
+let lastScroll=0;
+window.addEventListener('scroll', function(){
+    let currentScroll=window.pageYOffset||document.documentElement.scrollTop;
+    if(currentScroll>lastScroll){
+        header.style.position="static";
+    }
+    else{
+        header.style.position="sticky";
+    }
+    lastScroll = currentScroll;
+    
+})

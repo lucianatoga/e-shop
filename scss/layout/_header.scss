@@ -51,12 +51,14 @@ header{
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid rgb(211, 211, 211);
-    position: sticky;
+    position:sticky;
     top:0;
 }
 
+
 //first section header
 .title-buttons{
+    height: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,8 +70,8 @@ header{
     background:none;
     padding: 0;
     :hover{
-        width: 20px;
-        height: 20px;
+        width: 107%;
+        height: 107%;
     }
     
 }
@@ -85,7 +87,7 @@ header{
 .option-menu{
     align-self: center;
     margin: 0.5rem;
-    height: 3rem;
+    height: 2.5rem;
     display: flex;
     align-items: end;
     font-weight: 300;

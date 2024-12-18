@@ -68,6 +68,7 @@ header {
 }
 
 .title-buttons {
+  height: 5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,8 +82,8 @@ header {
   padding: 0;
 }
 .simple-button :hover {
-  width: 20px;
-  height: 20px;
+  width: 107%;
+  height: 107%;
 }
 
 .logo-img {
@@ -98,7 +99,7 @@ header {
 .option-menu {
   align-self: center;
   margin: 0.5rem;
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   align-items: end;
   font-weight: 300;
@@ -177,7 +178,6 @@ header {
 }
 
 .disabled {
-  pointer-events: none;
   filter: blur(5px);
 }
 
@@ -191,22 +191,23 @@ header {
 }
 
 .shortcut-card {
-  width: 7rem;
+  width: 6.5rem;
   height: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 .shortcut-card img {
   width: auto;
-  height: 5rem;
+  height: 5.5rem;
   border-radius: 50%;
   border: 3px solid #ffb7ce;
 }
 .shortcut-card p {
   font-size: 12px;
   margin: 5px;
+  text-align: center;
 }
 
 .destacado-preview {

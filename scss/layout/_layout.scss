@@ -1,5 +1,4 @@
 .disabled{
-    pointer-events: none;
     filter: blur(5px);
 }
 .shortcuts{
@@ -11,21 +10,22 @@
     align-items: center;
 }
 .shortcut-card{
-    width: 7rem;
+    width: 6.5rem;
     height: 7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content:start;
     img{
         width: auto;
-        height: 5rem;
+        height: 5.5rem;
         border-radius: 50%;
         border: 3px solid $rosa;
     }
     p{
         font-size: 12px;
         margin: 5px;
+        text-align: center;
     }
     // a{
     //     position: relative;
