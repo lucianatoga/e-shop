@@ -65,6 +65,11 @@ header {
   border-bottom: 1px solid rgb(211, 211, 211);
   position: sticky;
   top: 0;
+  transition: transform 0.5s ease;
+}
+
+header.hidden {
+  transform: translateY(-100%);
 }
 
 .title-buttons {
@@ -147,11 +152,11 @@ header {
   align-items: center;
 }
 .search-section label {
-  position: absolute;
-  left: 19.5rem;
-  top: 3.8rem;
+  position: relative;
+  right: 45rem;
   pointer-events: none;
   color: rgb(77, 77, 77);
+  width: 4rem;
 }
 .search-section input {
   height: 3rem;
@@ -179,6 +184,7 @@ header {
 
 .disabled {
   filter: blur(5px);
+  pointer-events: none;
 }
 
 .shortcuts {
@@ -289,7 +295,7 @@ header {
   border-radius: 5px;
   width: 8.5rem;
   height: 3rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 1rem;
 }
 

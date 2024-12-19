@@ -5,8 +5,9 @@ function showSearchSection(){
     document.getElementById("title-buttons-section").style.display="none";
     document.getElementById("option-menu-section").style.display="none";
     search_section.style.display="flex";
-    search_section.style.position="absolute";
-    search_section.style.top="0";
+    search_section.style.position="sticky";
+    header.style.zIndex="10";
+    //search_section.style.top="0";
     document.querySelector("main").classList.add("disabled");
     document.querySelector("body").style.overflow="hidden";
     search_visible=true;
@@ -31,16 +32,17 @@ close_button.addEventListener('click', function(event){
     event.stopPropagation();
 })
 
+// RISE LABEL WHEN FOCUSING ON SEARCH BAR INPUT
 const search_bar_input=document.querySelector('input[name="search"]');
 search_bar_input.addEventListener('focus', ()=>{
     const search_label=document.querySelector('label[for="search"]');
     search_label.style.fontSize="10px";
-    search_label.style.top="3.1rem";
+    search_label.style.bottom="1rem";
 })
 search_bar_input.addEventListener('blur', ()=>{
     const search_label=document.querySelector('label[for="search"]');
     search_label.style.fontSize="1rem";
-    search_label.style.top="3.8rem";
+    search_label.style.bottom="0";
 })
 
 //NAV MENU//
@@ -58,7 +60,6 @@ function showHideDropdown(){
     if(dropdown_content.classList.contains("dropdown-content-visible")){
         arrow.style.rotate="180deg";
         dropdown_visible=true;
-
         all_dropdowns.forEach(dropdown=>{
             if(dropdown!==dropdown_content && dropdown.classList.contains("dropdown-content-visible")){
                 dropdown.classList.toggle("dropdown-content-visible");
@@ -72,8 +73,9 @@ function showHideDropdown(){
         dropdown_visible=false;
     }
 }
-// CLOSE DROPDOWNS WHEN CLICKING OUTSIDE
+
 window.addEventListener('click', function(event){
+    // CLOSE DROPDOWNS WHEN CLICKING OUTSIDE
     if(dropdown_visible===true && !links.includes(event.target)){
         
         all_dropdowns.forEach(dropdown=>{
@@ -90,17 +92,26 @@ window.addEventListener('click', function(event){
     }
 });
 
-//HIDE HEADER WHEN SCROLLING UP
+// HIDE HEADER WHEN SCROLLING UP
 const header=document.querySelector('header');
 let lastScroll=0;
 window.addEventListener('scroll', function(){
     let currentScroll=window.pageYOffset||document.documentElement.scrollTop;
-    if(currentScroll>lastScroll){
+    if(currentScroll>lastScroll && currentScroll<=190){
         header.style.position="static";
     }
+    else if(currentScroll>lastScroll && currentScroll>190){
+        header.classList.add("hidden");
+    }
     else{
+        header.classList.remove("hidden");
         header.style.position="sticky";
     }
     lastScroll = currentScroll;
     
 })
+
+//DISPLAY PRODUCTS CARDS
+const calzado_section=document.getElementById("calzado-cards-container");
+
+//CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
