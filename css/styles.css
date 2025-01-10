@@ -112,6 +112,7 @@ header.hidden {
 }
 .option-menu a:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .navbar a {
@@ -234,10 +235,11 @@ header.hidden {
   font-size: 1rem;
 }
 
-.previews-container {
+.preview-home-section, .products-section {
   padding: 0 2rem;
+  margin-bottom: 2rem;
 }
-.previews-container h2 {
+.preview-home-section h2, .products-section h2 {
   font-size: 1.7rem;
   font-weight: 600;
 }
@@ -251,27 +253,30 @@ header.hidden {
   border-radius: 50%;
 }
 
-.calzado-section {
+.preview-home-section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 0.5rem;
 }
-.calzado-section a {
+.preview-home-section a {
   align-self: center;
 }
 
-.calzado-cards-container {
+.four-cards-container, .products-cards-conatiner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 28rem;
   justify-content: center;
   column-gap: 1rem;
 }
-.calzado-cards-container p {
+.four-cards-container p, .products-cards-conatiner p {
   font-size: 0.9rem;
   font-weight: 600;
   margin: 0;
+}
+
+.product-card img {
+  height: 18rem;
 }
 
 .prices {

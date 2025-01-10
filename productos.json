@@ -1,0 +1,287 @@
+{
+    "calzado":[
+        {
+            "id":1,
+            "name": "Botas con polaina",
+            "colors":["negro", "marrón"],
+            "category":"botas",
+            "price":1000,
+            "img": ["./images/botas-polaina-negras.webp", "./images/botas-polaina-marron.webp"]
+        },
+        {
+            "id":2,
+            "name": "Bucaneras largas",
+            "colors":["negro"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/bucanera-negra.webp","./images/bucanera-negra2.webp" ]
+        },
+        {
+            "id":3,
+            "name": "Botas con correa",
+            "colors":["negro"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":4,
+            "name": "Bikerboots cortas",
+            "colors":["negro","marrón"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/bikers-cortas.webp"]
+        },
+        {
+            "id":5,
+            "name": "Bikerboots medianas",
+            "colors":["negro", "marrón"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":6,
+            "name": "Bikerboots largas full hebillas",
+            "colors":["negro", "marrón"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":7,
+            "name": "Botas con full lisas",
+            "colors":["negro"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":8,
+            "name": "Botas con cordón",
+            "colors":["beige"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":9,
+            "name": "Botas clásicas",
+            "colors":["negro"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":10,
+            "name": "Pantubota corta",
+            "colors":["negro", "marrón", "beige"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":11,
+            "name": "Medias para Bikerboots",
+            "colors":["blanco"],
+            "category":"botas",
+            "price":1000,
+            "img":["./images/botas-polaina-negras.webp"]
+        },
+        {
+            "id":12,
+            "name":"Sandalias dos tiras",
+            "colors":["negro", "blanco"],
+            "category":"sandalias",
+            "price":1000,
+            "img":["./images/sandalias-negras-tiras.jpg"]
+        },
+        {
+            "id":13,
+            "name":"Sandalias tiras finas",
+            "colors":["negro"],
+            "category":"sandalias",
+            "price":1000,
+            "img":["./images/sandalias-negras-tiras.jpg"]
+        },
+        {
+            "id":14,
+            "name":"Championes Venom",
+            "colors":["negro", "beige"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":15,
+            "name":"Championes Stylish",
+            "colors":["negro", "blanco"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":16,
+            "name":"Championes Caleb",
+            "colors":["blanco", "gris"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":16,
+            "name":"Championes Atlanta",
+            "colors":["negro", "blanco"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":17,
+            "name":"Championes Balance",
+            "colors":["crudo"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":18,
+            "name":"Championes Kioto",
+            "colors":["negro", "gris"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":19,
+            "name":"Championes Deporte",
+            "colors":["negro", "rosado"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":20,
+            "name":"Championes Musa",
+            "colors":["blanco"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":21,
+            "name":"Championes Polo",
+            "colors":["negro", "blanco"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":22,
+            "name":"Championes Guayana",
+            "colors":["negro", "beige"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        },
+        {
+            "id":23,
+            "name":"Championes Spring",
+            "colors":["negro"],
+            "category":"casual",
+            "price":1000,
+            "img":["./images/championes-stylish-blanco.webp"]
+        }
+    ],
+    "aros":[
+        {
+            "id":24,
+            "name":"Aros simples plata 925",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/aritos-plata.webp", "./images/aritos-dorado.webp"]
+        },
+        {
+            "id":25,
+            "name":"Aros dobles plata 925",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":26,
+            "name":"Aros luna plata",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":27,
+            "name":"Aros sol plata",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":28,
+            "name":"Aros acero",
+            "colors":["dorado", "plateado"],
+            "category":"acero",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":29,
+            "name":"Aros acero",
+            "colors":["dorado", "plateado"],
+            "category":"acero",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":30,
+            "name":"Aros acero",
+            "colors":["dorado", "plateado"],
+            "category":"acero",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":31,
+            "name":"Piercing aro",
+            "colors":["plateado"],
+            "category":"piercings",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":32,
+            "name":"Piercing flecha",
+            "colors":["plateado"],
+            "category":"piercings",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":33,
+            "name":"Earcuff estrellas",
+            "colors":["dorado", "plateado"],
+            "category":"trepadores",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        },
+        {
+            "id":27,
+            "name":"Earcuff triple",
+            "colors":["dorado", "plateado"],
+            "category":"trepadores",
+            "price": 500,
+            "img":["./images/aritos-plata.webp"]
+        }
+    ],
+    "accesorios":[]
+}
