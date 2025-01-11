@@ -275,7 +275,7 @@
             "img":["./images/aritos-plata.webp"]
         },
         {
-            "id":27,
+            "id":34,
             "name":"Earcuff triple",
             "colors":["dorado", "plateado"],
             "category":"trepadores",
@@ -283,5 +283,92 @@
             "img":["./images/aritos-plata.webp"]
         }
     ],
-    "accesorios":[]
+    "anillos":[
+        {
+            "id":35,
+            "name":"Anillo plata",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/anillos.webp", "./images/anillos2.webp"]
+        },
+        {
+            "id":36,
+            "name":"Anillo plata",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/anillos.webp"]
+        },
+        {
+            "id":37,
+            "name":"Anillo acero",
+            "colors":["dorado", "plateado"],
+            "category":"acero",
+            "price": 500,
+            "img":["./images/anillos.webp"]
+        },
+        {
+            "id":38,
+            "name":"Anillo acero",
+            "colors":["dorado", "plateado"],
+            "category":"acero",
+            "price": 500,
+            "img":["./images/anillos.webp"]
+        },
+        {
+            "id":39,
+            "name":"Anillo resina",
+            "colors":["dorado", "plateado"],
+            "category":"resina",
+            "price": 500,
+            "img":["./images/anillos.webp"]
+        }
+    ],
+    "collares":[
+        {
+            "id":40,
+            "name":"Collar plata",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/collar-dorado.webp", "./images/collar-plata.webp"]
+        },
+        {
+            "id":41,
+            "name":"Collar plata",
+            "colors":["dorado", "plateado"],
+            "category":"plata",
+            "price": 500,
+            "img":["./images/collar-dorado.webp"]
+        },
+        {
+            "id":42,
+            "name":"Collar acero",
+            "colors":["plateado"],
+            "category":"acero",
+            "price": 500,
+            "img":["./images/collar-dorado.webp"]
+        }
+    ],
+    "carteras":[
+        {
+            "id":43,
+            "name":"Cartera",
+            "colors":["negro"],
+            "category":"carteras",
+            "price": 500,
+            "img":["./images/cartera.webp"]
+        }
+    ],
+    "accesorios":[
+        {
+            "id":44,
+            "name":"Alhajero",
+            "colors":["blanco", "beige", "negro", "verde"],
+            "category":"accesorios",
+            "price": 500,
+            "img":["./images/alhajero-colores.webp"]
+        }
+    ]
 }

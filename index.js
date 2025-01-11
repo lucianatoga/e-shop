@@ -49,7 +49,17 @@ search_bar_input.addEventListener('blur', ()=>{
 let dropdown_visible=false;
 const button_links=Array.from(document.querySelectorAll('ul.navbar a[role="button"]'));
 const all_dropdowns=document.querySelectorAll("ul.dropdown-content");
-button_links.forEach(link=>link.addEventListener('click', showHideDropdown));
+button_links.forEach(link=>{
+    if(link.querySelector('ion-icon')){
+        link.addEventListener('click', showHideDropdown)
+    }
+    else{
+        const subcategory=link.textContent.toLowerCase();
+        const category=subcategory;
+        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+        link.href=url;
+    }
+});
 
 function showHideDropdown(){ 
     event.preventDefault();
@@ -146,10 +156,10 @@ const dropdown_links=Array.from(document.querySelectorAll('ul.dropdown-content a
             const subcategory=link.textContent.split(" ")[0].toLowerCase();
             const category=link.closest('ul.dropdown-content').previousElementSibling.textContent.toLowerCase();
             const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
-            //console.log(url);
             link.href=url;
             //window.location.href=url;
         }));
+
 function showFourProducts(data, category, section){
     const card_section=document.getElementById(section);
     const products_in_category=data.filter(product=>product.category===category);
