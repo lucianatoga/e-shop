@@ -68,6 +68,9 @@ header.hidden{
     justify-content: space-between;
     align-items: center;
     margin: 0.5rem;
+    a{
+        height: 5rem;
+    }
 }
 .simple-button{
     border: none;
@@ -79,9 +82,7 @@ header.hidden{
     }
     
 }
-.logo-img{
-    justify-self: center;
-}
+
 .login-cart{
     display: flex;
     align-items: center;

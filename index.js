@@ -151,15 +151,49 @@ document.addEventListener('DOMContentLoaded', async function(){
         }
 })
 const dropdown_links=Array.from(document.querySelectorAll('ul.dropdown-content a'));
-        dropdown_links.forEach(link => link.addEventListener('click', function(e){
-            //e.preventDefault();
-            const subcategory=link.textContent.split(" ")[0].toLowerCase();
-            const category=link.closest('ul.dropdown-content').previousElementSibling.textContent.toLowerCase();
-            const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
-            link.href=url;
-            //window.location.href=url;
-        }));
-
+dropdown_links.forEach(link => link.addEventListener('click', function(e){
+    //e.preventDefault();
+    const subcategory=link.textContent.split(" ")[0].toLowerCase();
+    const category=link.closest('ul.dropdown-content').previousElementSibling.textContent.toLowerCase();
+    const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+    link.href=url;
+    //window.location.href=url;
+}));
+const shortcuts_links=Array.from(document.querySelectorAll('div.shortcut-card a'));
+shortcuts_links.forEach(link=> link.addEventListener('click', function(e){
+    const product=link.nextElementSibling.textContent;
+    if(product==="botas"){
+        const subcategory="botas";
+        const category="calzado";
+        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+        link.href=url;
+    }
+    else if(product==="calzado"){
+        const subcategory="todos";
+        const category="calzado";
+        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+        link.href=url;
+    }
+    else if(product.includes("aros")){
+        const subcategory=product.split(" ").pop();
+        const category="aros";
+        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+        link.href=url;
+    }
+    else if(product==="carteras"){
+        const subcategory="carteras";
+        const category="carteras";
+        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+        link.href=url;
+    }
+    else{
+        const subcategory="accesorios";
+        const category="accesorios";
+        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
+        link.href=url;
+    }
+    
+}))
 function showFourProducts(data, category, section){
     const card_section=document.getElementById(section);
     const products_in_category=data.filter(product=>product.category===category);
@@ -193,7 +227,7 @@ function showFourProducts(data, category, section){
 
 function showProducts(subcategory, products){
     const products_section=document.getElementById(subcategory+"-section");
-    products_section.querySelector('h2').textContent=subcategory.toUpperCase();
+    products_section.querySelector('h2').textContent=subcategory.toLowerCase();
     const products_cards_conatiner=products_section.querySelector('section.products-cards-conatiner');
     //console.log(products_section);
     if(subcategory==="todos"){
@@ -206,7 +240,20 @@ function showProducts(subcategory, products){
             <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
             `;
             product_card.className="product-card";
+            //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
             products_cards_conatiner.appendChild(product_card);
+            product_card.addEventListener('mouseover', function(event){
+                const card=event.target;
+                if(product.img.length>1){
+                    card.src=`../${product.img[1]}`;
+                }
+            });
+            product_card.addEventListener('mouseout', function(event){
+                const card=event.target;
+                if(product.img.length>1){
+                    card.src=`../${product.img[0]}`;
+                }
+            });
         })
     }
     else{
@@ -220,12 +267,21 @@ function showProducts(subcategory, products){
                 <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
                 `;
                 product_card.className="product-card";
+                //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
+                product_card.addEventListener('mouseover', function(event){
+                    const card=event.target;
+                    if(product.img.length>1){
+                        card.src=`../${product.img[1]}`;
+                    }
+                });
+                product_card.addEventListener('mouseout', function(event){
+                    const card=event.target;
+                    if(product.img.length>1){
+                        card.src=`../${product.img[0]}`;
+                    }
+                });
                 products_cards_conatiner.appendChild(product_card);
             }
         })
     }
 }
-//add products to json
-//show products in all pages
-//add the hover over functionalities
-//add responsiveness
