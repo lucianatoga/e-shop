@@ -84,14 +84,21 @@ header.hidden {
   height: 5rem;
 }
 
-.simple-button {
+.icon-button {
   border: none;
   background: none;
   padding: 0;
 }
-.simple-button :hover {
+.icon-button :hover {
   width: 107%;
   height: 107%;
+}
+
+.close-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.8rem;
 }
 
 .login-cart {
@@ -187,6 +194,73 @@ header.hidden {
   pointer-events: none;
 }
 
+.rose-button {
+  border-radius: 5%;
+}
+
+.body-overlay {
+  background-color: rgba(128, 128, 128, 0.301);
+  z-index: 100;
+  background-size: cover;
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.shopping-cart-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  background-color: white;
+  backdrop-filter: blur(20px);
+  transition: 0.5s ease;
+  filter: none;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.shopping-cart-container b {
+  font-size: 1.2rem;
+}
+
+.shopping-cart-header {
+  display: flex;
+  flex-direction: column;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem;
+  gap: 0.7rem;
+}
+
+.shopping-cart-summary {
+  text-align: center;
+  padding: 0.7rem;
+  gap: 0.7rem;
+}
+
+.products-table {
+  text-align: center;
+}
+
+.products-table tbody {
+  border-bottom: 1px solid black;
+}
+
+.products-table td {
+  padding: 0.5rem;
+  width: 6rem;
+}
+
 .shortcuts {
   height: 12rem;
   display: flex;
@@ -250,6 +324,7 @@ header.hidden {
 .preview-home-section h2, .products-section h2 {
   font-size: 1.7rem;
   font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
 .preview-home-section {
@@ -284,6 +359,17 @@ header.hidden {
   height: 80%;
 }
 
+.product-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+}
+
+.name-price p {
+  font-size: larger;
+}
+
 .prices {
   display: flex;
   gap: 1rem;
@@ -298,15 +384,20 @@ header.hidden {
   font-size: 0.8rem;
 }
 
-.vermas-button {
+.buy-button {
+  padding-right: 2rem;
+}
+
+.black-button {
   border: none;
   background-color: black;
   color: white;
   border-radius: 5px;
-  width: 8.5rem;
   height: 3rem;
   font-size: 1rem;
-  margin: 1rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .info-section {

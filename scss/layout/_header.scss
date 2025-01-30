@@ -72,7 +72,7 @@ header.hidden{
         height: 5rem;
     }
 }
-.simple-button{
+.icon-button{
     border: none;
     background:none;
     padding: 0;
@@ -81,6 +81,12 @@ header.hidden{
         height: 107%;
     }
     
+}
+.close-cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .8rem;
 }
 
 .login-cart{

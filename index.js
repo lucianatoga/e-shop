@@ -102,7 +102,7 @@ window.addEventListener('click', function(event){
     }
 });
 
-// HIDE HEADER WHEN SCROLLING UP
+// HIDE HEADER WHEN SCROLLING DOWN
 const header=document.querySelector('header');
 let lastScroll=0;
 window.addEventListener('scroll', function(){
@@ -121,12 +121,85 @@ window.addEventListener('scroll', function(){
     
 })
 
+//SHOW SHOPPING CART
+let visibleCart=false;
+function showShoppingCart(){
+    let totalPrice=0;
+    const shopping_cart_container=document.getElementById("shopping-cart-container");
+    const shopping_cart_summary=document.getElementById("shopping-cart-summary");
+    shopping_cart_summary.innerHTML=``;
+    const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
+    const shopping_cart_header=document.getElementById("shopping-cart-header");
+    
+    if(shopping_cart.length<1){
+        shopping_cart_header.innerHTML=`
+        <b>Tu carrito está vacío</b>
+        <a href="./index.html"><button class="black-button">Seguir comprando</button></a>`;
+        shopping_cart_summary.innerHTML+=`
+        <b>¿Tienes una cuenta?</b>
+        <p><a href="#">Inicia sesión</a> para finalizar tus compras con mayor rapidez</p>
+        `;
+        
+    }
+    else{
+        const table=document.createElement('table');
+        table.className="products-table";
+        table.innerHTML+=`
+        <tr>
+            <th>preview</th>
+            <th>producto</th>
+            <th>precio</th>
+            <th>cantidad</th>
+        </tr>`;
+        shopping_cart.forEach(({id, nombre, precio, cantidad, img})=>{
+            table.innerHTML+=`
+            <tr>
+                <td><img src="${img}" width="80%"></td>
+                <td>${nombre}</td>
+                <td>$${precio}</td>
+                <td>x${cantidad}</td>
+                <td><button class="" onclick="quitarDelshopping_cart('${id}')">&#8722</button></td>
+                
+            </tr>`;
+            totalPrice+=(precio*cantidad);
+        });
+        shopping_cart_summary.appendChild(table);
+        shopping_cart_summary.innerHTML+=`
+        <p><b>monto total: $${totalPrice}</b></p>
+        <div class="shopping_cart-buttons">
+            <button class="" onclick="">Limpiar</button>
+            <button class="" onclick="closeShoppingCart()">Cerrar</button>
+        </div>
+        `;
+    }
+    shopping_cart_container.style.width="24rem";
+    shopping_cart_container.appendChild(shopping_cart_summary);
+    document.querySelector('section.body-overlay').style.display="inline";
+    document.querySelector("body").style.overflow="hidden";
+    visibleCart=true;
+}
+function closeShoppingCart(){
+    const shopping_cart_container=document.getElementById("shopping-cart-container");
+    shopping_cart_container.style.width="0";
+    document.querySelector('section.body-overlay').style.display="none";
+    document.querySelector("body").style.overflow="auto";
+    visibleCart=false;
+}
+const shopping_cart_button=document.getElementById("shopping-cart-button");
+shopping_cart_button.addEventListener('click', function(){
+    if(visibleCart){
+        closeShoppingCart();
+    }
+    else{
+        showShoppingCart();
+    }
+})
+
 //BODY
 
 const current_discount=15;
-//const products_section=document.querySelector("products-section");
-//GET PRODUCTS FROM JSON
 
+//GET PRODUCTS FROM JSON
 document.addEventListener('DOMContentLoaded', async function(){
         const response=await fetch("/productos.json");
         const json= await response.json();
@@ -135,18 +208,10 @@ document.addEventListener('DOMContentLoaded', async function(){
             showFourProducts(json.calzado,"botas", "four-cards-container1");
             showFourProducts(json.aros, "plata", "four-cards-container2");
         }
-        // if(document.querySelector("section.products-section")){
-        //     //console.log(document.title);
-        //     const subcategory=document.title;
-        //     const category="calzado";
-        //     showProducts(subcategory,json[category]);
-        // }
-        
         const params= new URLSearchParams(window.location.search);
         const category=params.get('category');
         const subcategory=params.get('subcategory');
         if(category&&subcategory){
-            //console.log(category, subcategory);
             showProducts(subcategory,json[category]);
         }
 })
@@ -194,92 +259,65 @@ shortcuts_links.forEach(link=> link.addEventListener('click', function(e){
     }
     
 }))
+
+//PRODUCTS DISPLAY
+
+//CREATE PRODUCT CARD
+function createProductCard(product){
+    const discounted_price=product.price-((product.price*current_discount)/100);
+    const product_card=document.createElement('div');
+    product_card.innerHTML=`
+    <img src="../${product.img[0]}" alt="" height="100%">
+    <div class="product-data">
+        <div class="name-price">
+            <p>${product.name}</p>
+            <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
+        </div>
+        <button class="icon-button buy-button" id="buy-button"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg></button>
+    </div>
+    `;
+    product_card.className="product-card";
+    //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
+    product_card.addEventListener('mouseover', function(event){
+        const card=event.target;
+        if(product.img.length>1){
+            card.src=`../${product.img[1]}`;
+        }
+    });
+    product_card.addEventListener('mouseout', function(event){
+        const card=event.target;
+        if(product.img.length>1){
+            card.src=`../${product.img[0]}`;
+        }
+    })
+    return product_card;
+}
+
+//DISPLAY OF FOUR PRODUCTS CARDS ON THE HOME PAGE
 function showFourProducts(data, category, section){
     const card_section=document.getElementById(section);
     const products_in_category=data.filter(product=>product.category===category);
     (products_in_category.slice(0,4)).forEach(product=> {
-        const discounted_price=product.price-((product.price*current_discount)/100);
-        const product_card=document.createElement('div');
-        product_card.innerHTML=`
-        <img src="${product.img[0]}" alt="" height="100%">
-        <p>${product.name}</p>
-        <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
-        `;
-        product_card.className="product-card";
-        //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
-        product_card.addEventListener('mouseover', function(event){
-            const card=event.target;
-            if(product.img.length>1){
-                card.src=product.img[1];
-            }
-        });
-        product_card.addEventListener('mouseout', function(event){
-            const card=event.target;
-            if(product.img.length>1){
-                card.src=product.img[0];
-            }
-        });
+        const product_card=createProductCard(product);
         card_section.appendChild(product_card);
     })
 }
 
-//PRODUCTS PAGES
-
+//DISPLAY OF PRODUCTS CARDS ON THE PRODUCTS PAGES
 function showProducts(subcategory, products){
     const products_section=document.getElementById(subcategory+"-section");
     products_section.querySelector('h2').textContent=subcategory.toLowerCase();
     const products_cards_conatiner=products_section.querySelector('section.products-cards-conatiner');
-    //console.log(products_section);
     if(subcategory==="todos"){
         products.forEach(product=>{
-            const discounted_price=product.price-((product.price*current_discount)/100);
-            const product_card=document.createElement('div');
-            product_card.innerHTML=`
-            <img src="../${product.img[0]}" alt="" height="100%">
-            <p>${product.name}</p>
-            <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
-            `;
-            product_card.className="product-card";
-            //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
+            const product_card=createProductCard(product);
             products_cards_conatiner.appendChild(product_card);
-            product_card.addEventListener('mouseover', function(event){
-                const card=event.target;
-                if(product.img.length>1){
-                    card.src=`../${product.img[1]}`;
-                }
-            });
-            product_card.addEventListener('mouseout', function(event){
-                const card=event.target;
-                if(product.img.length>1){
-                    card.src=`../${product.img[0]}`;
-                }
-            });
         })
     }
     else{
         products.forEach(product=>{
             if(product.category===subcategory){
-                const discounted_price=product.price-((product.price*current_discount)/100);
-                const product_card=document.createElement('div');
-                product_card.innerHTML=`
-                <img src="../${product.img[0]}" alt="" height="100%">
-                <p>${product.name}</p>
-                <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
-                `;
-                product_card.className="product-card";
-                //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
-                product_card.addEventListener('mouseover', function(event){
-                    const card=event.target;
-                    if(product.img.length>1){
-                        card.src=`../${product.img[1]}`;
-                    }
-                });
-                product_card.addEventListener('mouseout', function(event){
-                    const card=event.target;
-                    if(product.img.length>1){
-                        card.src=`../${product.img[0]}`;
-                    }
-                });
+                const product_card=createProductCard(product);
                 products_cards_conatiner.appendChild(product_card);
             }
         })
