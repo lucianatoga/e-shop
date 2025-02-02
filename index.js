@@ -130,7 +130,7 @@ function showShoppingCart(){
     shopping_cart_summary.innerHTML=``;
     const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
     const shopping_cart_header=document.getElementById("shopping-cart-header");
-    
+    const shopping_cart_footer=document.getElementById("shopping-cart-footer");
     if(shopping_cart.length<1){
         shopping_cart_header.innerHTML=`
         <b>Tu carrito está vacío</b>
@@ -139,47 +139,56 @@ function showShoppingCart(){
         <b>¿Tienes una cuenta?</b>
         <p><a href="#">Inicia sesión</a> para finalizar tus compras con mayor rapidez</p>
         `;
-        
+        shopping_cart_footer.innerHTML=``;
     }
     else{
+        shopping_cart_header.innerHTML=`
+        <h2>Tu carrito</h2>`;
         const table=document.createElement('table');
         table.className="products-table";
         table.innerHTML+=`
         <tr>
-            <th>preview</th>
-            <th>producto</th>
-            <th>precio</th>
-            <th>cantidad</th>
+            <th>PRODUCTO</th>
+            <th></th>
+            <th>TOTAL</th>
         </tr>`;
-        shopping_cart.forEach(({id, nombre, precio, cantidad, img})=>{
+        shopping_cart.forEach((product)=>{
             table.innerHTML+=`
             <tr>
-                <td><img src="${img}" width="80%"></td>
-                <td>${nombre}</td>
-                <td>$${precio}</td>
-                <td>x${cantidad}</td>
-                <td><button class="" onclick="quitarDelshopping_cart('${id}')">&#8722</button></td>
-                
+                <td><img src="${product.img}" width="80%"></td>
+                <td><div class="td-data">
+                    <b>${product.name}</b> $${product.price} 
+                    <div class="qty-input-bin-button">
+                        <div class="qty-input">
+                            <button onclick="decreaseProdQty(${product.id})">&#8722</button>
+                            <input type="number" value="${product.qty}">
+                            <button onclick="increaseProdQty(${product.id})"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg></button>
+                        </div>
+                        <button id="bin-button" onclick="removeFromCart(${product.id})"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16"><path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                        </svg></button>
+                    </div>
+                </div></td>
+                <td>$${product.price*product.qty}</td>
             </tr>`;
-            totalPrice+=(precio*cantidad);
+            totalPrice+=(product.price*product.qty);
         });
         shopping_cart_summary.appendChild(table);
-        shopping_cart_summary.innerHTML+=`
-        <p><b>monto total: $${totalPrice}</b></p>
-        <div class="shopping_cart-buttons">
-            <button class="" onclick="">Limpiar</button>
-            <button class="" onclick="closeShoppingCart()">Cerrar</button>
-        </div>
+        shopping_cart_summary.innerHTML+=`<input>`;
+        shopping_cart_footer.innerHTML=`
+        <p><b>Subtotal: $${totalPrice} UYU</b></p>
+        <button class="black-button">Pagar pedido</button>
         `;
     }
+    shopping_cart_container.style.display="flex";
     shopping_cart_container.style.width="24rem";
-    shopping_cart_container.appendChild(shopping_cart_summary);
-    document.querySelector('section.body-overlay').style.display="inline";
+    document.querySelector('section.body-overlay').style.display="block";
+    document.querySelector('section.body-overlay').style.top=`${window.pageYOffset||document.documentElement.scrollTop}px`;
     document.querySelector("body").style.overflow="hidden";
     visibleCart=true;
 }
 function closeShoppingCart(){
     const shopping_cart_container=document.getElementById("shopping-cart-container");
+    shopping_cart_container.style.display="none";
     shopping_cart_container.style.width="0";
     document.querySelector('section.body-overlay').style.display="none";
     document.querySelector("body").style.overflow="auto";
@@ -194,6 +203,53 @@ shopping_cart_button.addEventListener('click', function(){
         showShoppingCart();
     }
 })
+
+//ADD PRODUCTS TO SHOPPING CART
+function countProducts(){
+    let counter=0;
+    const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
+    shopping_cart.length===0 ? counter=0 : shopping_cart.forEach(product=>counter+=product.qty);
+    const counter_html=document.getElementById("counter");
+    counter_html.innerHTML=`${counter}`;
+}
+countProducts();
+
+function addToCart(product_selected){
+    //const product_selected=productos_stock.find((producto)=>producto.id==id);
+    const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
+    const existing_product=shopping_cart.find((product)=>product.id==product_selected.id);
+    existing_product ? existing_product.qty++ : shopping_cart.push({...product_selected, qty:1});
+    localStorage.setItem('cart', JSON.stringify(shopping_cart));
+    if(visibleCart){
+        showShoppingCart();
+    }
+    countProducts()
+}
+function removeFromCart(id){
+    const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
+    const existing_product=shopping_cart.find((product)=>product.id==id);
+    shopping_cart.splice(shopping_cart.indexOf(existing_product),1);
+    localStorage.setItem('cart', JSON.stringify(shopping_cart));
+    showShoppingCart();
+    countProducts();
+}
+function decreaseProdQty(id){
+    const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
+    const existing_product=shopping_cart.find((product)=>product.id==id);
+    existing_product.qty>1 ? existing_product.qty-- : shopping_cart.splice(shopping_cart.indexOf(existing_product),1);
+    localStorage.setItem('cart', JSON.stringify(shopping_cart));
+    showShoppingCart();
+    countProducts();
+}
+function increaseProdQty(id){
+    const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
+    const existing_product=shopping_cart.find((product)=>product.id==id);
+    existing_product.qty++ ;
+    localStorage.setItem('cart', JSON.stringify(shopping_cart));
+    showShoppingCart();
+    countProducts();
+}
+
 
 //BODY
 
@@ -273,10 +329,11 @@ function createProductCard(product){
             <p>${product.name}</p>
             <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
         </div>
-        <button class="icon-button buy-button" id="buy-button"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg></button>
+        <button class="icon-button add-button" id="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg></button>
     </div>
     `;
     product_card.className="product-card";
+    product_card.querySelector("button.add-button").addEventListener("click", function(){addToCart(product)});
     //CHANGE PICTURE WHEN HOVERING OVER PRODUCT CARD
     product_card.addEventListener('mouseover', function(event){
         const card=event.target;
@@ -323,3 +380,4 @@ function showProducts(subcategory, products){
         })
     }
 }
+

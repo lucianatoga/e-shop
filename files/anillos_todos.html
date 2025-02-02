@@ -36,7 +36,7 @@
                 <button class="icon-button" id="shopping-cart-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
                     </svg>
-                </button>
+                </button></button><span id="counter"></span>
             </div>
         </section>
         <section class="option-menu" id="option-menu-section">
@@ -96,6 +96,15 @@
         </section>
     </header>
     <main>
+        <section class="shopping-cart-container" id="shopping-cart-container">
+            <button class="icon-button close-cart" id="close-cart" onclick="closeShoppingCart()"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+              </svg></button>
+            <div class="shopping-cart-header" id="shopping-cart-header">
+            </div>
+            <div class="shopping-cart-summary" id="shopping-cart-summary">
+            </div>
+        </section>
         <section class="shortcuts">
             <div class="shortcut-card">
                 <a href="./botas.html" target="_blank"><img src="../images/bota1.jpg" alt="bota marrón de cuero media caña" width="100%" height="100%"></a>
@@ -191,6 +200,7 @@
             </nav>
         </section>
     </footer>
+    <section class="body-overlay"></section>
     <script src="../index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
