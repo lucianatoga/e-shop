@@ -243,10 +243,10 @@ header.hidden {
   z-index: 1000;
   display: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 4rem;
   padding: 0.7rem;
+  gap: 1rem;
 }
 
 .shopping-cart-header {
@@ -255,7 +255,6 @@ header.hidden {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 0.7rem;
 }
 .shopping-cart-header b {
   font-size: 1.2rem;
@@ -267,7 +266,6 @@ header.hidden {
 
 .shopping-cart-summary {
   text-align: center;
-  gap: 0.7rem;
   width: 100%;
 }
 
@@ -279,14 +277,11 @@ header.hidden {
   font-weight: 400;
   font-size: smaller;
   padding-bottom: 1rem;
-}
-.products-table tbody {
   border-bottom: 1px solid black;
 }
 .products-table td {
   padding: 0.5rem;
-  width: 2rem;
-  height: 12rem;
+  width: auto;
 }
 
 .td-data {
@@ -331,6 +326,28 @@ header.hidden {
   margin: 0;
 }
 
+.order-notes {
+  padding: 0.7rem 0;
+  margin: 1rem 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.order-notes a {
+  text-decoration: none;
+}
+
+.notes-textarea {
+  display: none;
+}
+
+.notes-textarea-visible {
+  display: inline;
+}
+
+.ion-icon-rotate {
+  rotate: 180deg;
+}
+
 .shopping-cart-footer {
   display: flex;
   flex-direction: column;
@@ -339,6 +356,11 @@ header.hidden {
 }
 .shopping-cart-footer button {
   width: 100%;
+}
+.shopping-cart-footer p {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .shortcuts {

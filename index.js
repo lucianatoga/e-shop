@@ -173,9 +173,22 @@ function showShoppingCart(){
             totalPrice+=(product.price*product.qty);
         });
         shopping_cart_summary.appendChild(table);
-        shopping_cart_summary.innerHTML+=`<input>`;
+        shopping_cart_summary.innerHTML+=`
+        <div class="order-notes">
+            <a href="#" role="button">Instrucciones especiales del pedido<ion-icon name="chevron-down-outline"></ion-icon></a>
+            <textarea rows="4" cols="35" class="notes-textarea"></textarea>
+        </div>`;
+        const notes_link=shopping_cart_summary.querySelector("a");
+        notes_link.addEventListener('click', function(){
+            notes_link.querySelector("ion-icon").classList.toggle("ion-icon-rotate")
+            notes_link.nextElementSibling.classList.toggle("notes-textarea-visible");
+        })
+        // const notes_input=shopping_cart_summary.querySelector("input.order-notes-input");
+        // notes_input.addEventListener('click', function(){
+        //     notes_input.classList.toggle("order-notes-input");
+        // })
         shopping_cart_footer.innerHTML=`
-        <p><b>Subtotal: $${totalPrice} UYU</b></p>
+        <p><b>Subtotal</b> $${totalPrice} UYU</p>
         <button class="black-button">Pagar pedido</button>
         `;
     }
