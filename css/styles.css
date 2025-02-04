@@ -253,7 +253,6 @@ header.hidden {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
 }
 .shopping-cart-header b {
@@ -470,20 +469,7 @@ header.hidden {
 
 .name-price p {
   font-size: larger;
-}
-
-.prices {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-.prices p {
-  color: #ffb7ce;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-.prices s {
-  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .add-button {

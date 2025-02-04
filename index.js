@@ -155,7 +155,7 @@ function showShoppingCart(){
         shopping_cart.forEach((product)=>{
             table.innerHTML+=`
             <tr>
-                <td><img src="${product.img}" width="80%"></td>
+                <td><img src=".${product.img[0]}" width="80%"></td>
                 <td><div class="td-data">
                     <b>${product.name}</b> $${product.price} 
                     <div class="qty-input-bin-button">
@@ -266,8 +266,6 @@ function increaseProdQty(id){
 
 //BODY
 
-const current_discount=15;
-
 //GET PRODUCTS FROM JSON
 document.addEventListener('DOMContentLoaded', async function(){
         const response=await fetch("/productos.json");
@@ -333,14 +331,13 @@ shortcuts_links.forEach(link=> link.addEventListener('click', function(e){
 
 //CREATE PRODUCT CARD
 function createProductCard(product){
-    const discounted_price=product.price-((product.price*current_discount)/100);
     const product_card=document.createElement('div');
     product_card.innerHTML=`
     <img src="../${product.img[0]}" alt="" height="100%">
     <div class="product-data">
         <div class="name-price">
             <p>${product.name}</p>
-            <div class="prices"><s>$${product.price}</s><p>$${discounted_price}</p></div>
+            <div class="prices"><p>$${product.price}</p></div>
         </div>
         <button class="icon-button add-button" id="add-button"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/></svg></button>
     </div>
@@ -351,13 +348,13 @@ function createProductCard(product){
     product_card.addEventListener('mouseover', function(event){
         const card=event.target;
         if(product.img.length>1){
-            card.src=`../${product.img[1]}`;
+            card.src=`.${product.img[1]}`;
         }
     });
     product_card.addEventListener('mouseout', function(event){
         const card=event.target;
         if(product.img.length>1){
-            card.src=`../${product.img[0]}`;
+            card.src=`.${product.img[0]}`;
         }
     })
     return product_card;
