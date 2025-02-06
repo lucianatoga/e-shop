@@ -100,7 +100,33 @@ window.addEventListener('click', function(event){
     if(event.target!==search_section && event.target!==search_button && !search_section.contains(event.target) && search_visible===true){
         closeSearchSection();
     }
+    if(event.target===document.querySelector("section.body-overlay")){
+        closeShoppingCart();
+    }
 });
+
+//SHOW MENU WHEN CLICKING MENU BUTTON WHEN SCREEN WIDTH IS LESS THAN 700PX
+const expand_menu_button=document.getElementById("expand-menu-button");
+const option_menu_section=document.getElementById("option-menu-section");
+const ulist_navbar=document.querySelector("ul.ulist");
+window.addEventListener('resize', function(){
+    if(window.innerWidth>=700){
+        expand_menu_button.style.display="none";
+        option_menu_section.style.display="flex";
+    }
+    else{
+        expand_menu_button.style.display="inline";
+        option_menu_section.style.display="none";
+    }
+})
+expand_menu_button.addEventListener('click', function(){
+    if(option_menu_section.style.display==="none"){
+        option_menu_section.style.display="inline";
+    }
+    else{
+        option_menu_section.style.display="none";
+    }
+})
 
 // HIDE HEADER WHEN SCROLLING DOWN
 const header=document.querySelector('header');
@@ -157,7 +183,8 @@ function showShoppingCart(){
             <tr>
                 <td><img src=".${product.img[0]}" width="80%"></td>
                 <td><div class="td-data">
-                    <b>${product.name}</b> $${product.price} 
+                    <b>${product.name}</b> 
+                    <p>$${product.price} u</p>
                     <div class="qty-input-bin-button">
                         <div class="qty-input">
                             <button onclick="decreaseProdQty(${product.id})">&#8722</button>

@@ -11,10 +11,9 @@
     
 }
 
-//banners
+//BANNERS
 .inner-banner{
-    display: flex;
-    flex-direction: row;
+    @include flex(flex, row, center, center);
     gap: 3rem;
     animation: move 18s reverse linear infinite;
 }
@@ -43,6 +42,7 @@
     text-shadow: 210rem 0 white, 140rem 0 white, 70rem 0 white, -70rem 0 white, -140rem 0 white;
 }
 
+//HEADER
 header{
     height: 9rem;
     padding:  0 3rem;
@@ -58,15 +58,10 @@ header{
 header.hidden{
     transform: translateY(-100%);
 }
-
-
-//first section header
+//UPPER HALF HEADER
 .title-buttons{
     height: 5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(flex, row, center, space-between);
     margin: 0.5rem;
     a{
         height: 5rem;
@@ -82,19 +77,22 @@ header.hidden{
     }
     
 }
-.close-cart{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: .8rem;
+#expand-menu-button{
+    display: none;
 }
-
-.login-cart{
+.two-buttons{
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 1rem;
 }
-//second section header
+#counter{
+    font-size: .8rem;
+    font-weight: 600;
+    position: relative;
+    right: 10px;
+    bottom: 8px;
+}
+//LOWER HALF HEADER
 .option-menu{
     align-self: center;
     margin: 0.5rem;
@@ -108,6 +106,7 @@ header.hidden{
         text-underline-offset: 3px;
     }
 }
+
 .navbar a{
     display: flex;
     align-items: center;
@@ -133,15 +132,12 @@ header.hidden{
 .dropdown-content-visible{
     display: block;
 }
-//search section
+//SEARCH SECTION
 .search-section{
-    display: none;
     height: 100%;
     width: 100%;
     background-color: white;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    @include flex(none, row, center, center);
     label{
         position: relative;
         right: 45rem;
@@ -173,3 +169,27 @@ header.hidden{
     position: relative;
     right: 2.5rem;
 }
+
+// //MOBILE
+// @media only screen and (max-width:500px){
+
+// }
+@media only screen and (max-width:700px){
+    .option-menu{
+        height: auto;
+    }
+    .ulist{
+        flex-direction: column;
+    }
+    header{
+        height: auto;
+    }
+}
+// //TABLET
+// @media only screen and (min-width:501px) and (max-width:960px){
+
+// }
+// //DESKTOP
+// @media only screen and (min-width:961px){
+
+// }

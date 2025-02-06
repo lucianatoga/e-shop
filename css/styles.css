@@ -27,6 +27,8 @@
 .inner-banner {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   gap: 3rem;
   animation: move 18s reverse linear infinite;
 }
@@ -76,8 +78,8 @@ header.hidden {
   height: 5rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin: 0.5rem;
 }
 .title-buttons a {
@@ -94,17 +96,22 @@ header.hidden {
   height: 107%;
 }
 
-.close-cart {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.8rem;
+#expand-menu-button {
+  display: none;
 }
 
-.login-cart {
+.two-buttons {
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 1rem;
+}
+
+#counter {
+  font-size: 0.8rem;
+  font-weight: 600;
+  position: relative;
+  right: 10px;
+  bottom: 8px;
 }
 
 .option-menu {
@@ -150,13 +157,13 @@ header.hidden {
 }
 
 .search-section {
-  display: none;
   height: 100%;
   width: 100%;
   background-color: white;
+  display: none;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 .search-section label {
   position: relative;
@@ -189,19 +196,20 @@ header.hidden {
   right: 2.5rem;
 }
 
+@media only screen and (max-width: 700px) {
+  .option-menu {
+    height: auto;
+  }
+  .ulist {
+    flex-direction: column;
+  }
+  header {
+    height: auto;
+  }
+}
 .disabled {
   filter: blur(5px);
   pointer-events: none;
-}
-
-.grey-button {
-  border: none;
-  background-color: grey;
-  color: white;
-  border-radius: 5px;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
 }
 
 .black-button {
@@ -213,6 +221,7 @@ header.hidden {
   font-size: 1rem;
   padding: 1rem 1.5rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -243,17 +252,26 @@ header.hidden {
   z-index: 1000;
   display: none;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
   padding: 0.7rem;
   gap: 1rem;
+}
+
+.close-cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.8rem;
 }
 
 .shopping-cart-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  gap: 1rem;
 }
 .shopping-cart-header b {
   font-size: 1.2rem;
@@ -286,11 +304,14 @@ header.hidden {
 .td-data {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+.td-data p {
+  margin: 0;
 }
 
 .qty-input-bin-button {
   display: flex;
-  justify-content: left;
 }
 .qty-input-bin-button #bin-button {
   border: none;
@@ -309,6 +330,7 @@ header.hidden {
   background-color: white;
   width: 2rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
@@ -316,9 +338,6 @@ header.hidden {
   width: 2rem;
   border: none;
   text-align: center;
-}
-.qty-input input :focus {
-  outline: none;
 }
 .qty-input input::-webkit-inner-spin-button, .qty-input input::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -350,7 +369,6 @@ header.hidden {
 .shopping-cart-footer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
 }
 .shopping-cart-footer button {
@@ -366,9 +384,9 @@ header.hidden {
   height: 12rem;
   display: flex;
   flex-direction: row;
-  padding: 1rem;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .shortcut-card {
@@ -406,8 +424,9 @@ header.hidden {
   background-position: center;
   background-size: cover;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 .destacado-preview button {
   background-color: white;
@@ -463,6 +482,7 @@ header.hidden {
 .product-data {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   padding-top: 0.5rem;
 }
@@ -537,8 +557,9 @@ header.hidden {
 .socials {
   grid-column: 1/4;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: end;
+  justify-content: center;
 }
 .socials ul {
   gap: 1.5rem;
@@ -549,6 +570,7 @@ header.hidden {
   border-top: 1px solid rgb(211, 211, 211);
   padding: 1.5rem;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }

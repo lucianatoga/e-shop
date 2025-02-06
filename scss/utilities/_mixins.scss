@@ -4,3 +4,9 @@
 //     display: $display;
 //     flex-direction: $flex-direction;
 // }
+@mixin flex($display, $direction, $alignment, $justification){
+    display: $display;
+    flex-direction: $direction;
+    align-items: $alignment;
+    justify-content: $justification;
+}
