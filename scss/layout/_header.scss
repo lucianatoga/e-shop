@@ -170,25 +170,63 @@ header.hidden{
     right: 2.5rem;
 }
 
-// //MOBILE
-// @media only screen and (max-width:500px){
+//MOBILE
+@media only screen and (max-width:500px){
+    header{
+        padding: 0 1rem;
+    }
+    .logo-img{
+        height: 90%;
+        padding: 0 .5rem;
+    }
+    .search-section{
+        padding: 2rem 0;
+        form{
+            width: 90%;
+            display: flex;
+            justify-content: start;
+        }
+        input{
+            width: 75%;
+        }
+        label{
+            right: 72%;
+            top: .8rem;
+        }
+    }
+}
 
-// }
+//TABLET
+@media only screen and (min-width:501px) and (max-width:960px){
+    .search-section{
+        padding: 2rem 0;
+        form{
+            width: 97%;
+        }
+        input{
+            width: 76%;
+        }
+        label{
+            right: 75%;
+        }
+    }
+}
 @media only screen and (max-width:700px){
     .option-menu{
         height: auto;
+        display: none;
     }
-    .ulist{
+    .navbar{
         flex-direction: column;
     }
     header{
         height: auto;
     }
+    #expand-menu-button{
+        display: inline;
+    }
 }
-// //TABLET
-// @media only screen and (min-width:501px) and (max-width:960px){
 
-// }
 // //DESKTOP
 // @media only screen and (min-width:961px){
 

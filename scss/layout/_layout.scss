@@ -153,13 +153,14 @@
 
 //SHORTCUTS MENU
 .shortcuts{
-    height: 12rem;
+    height: auto;
     @include flex(flex, row, center, center);
     padding: 1rem;
 }
 .shortcut-card{
     width: 6.5rem;
     height: 7rem;
+    margin: .8rem 0;
     @include flex(flex, column, center, start);
     img{
         width: auto;
@@ -221,23 +222,22 @@
 }
 .four-cards-container, .products-cards-conatiner{
     display: grid;
-    grid-template-columns: repeat(auto-fill,19rem);
-    grid-template-rows: repeat(auto-fill, 23rem);
-    column-gap: 1rem;
-    row-gap: 1rem;
+    grid-template-columns: repeat(auto-fill,18rem);
+    grid-template-rows: repeat(auto-fill, 25rem);
+    column-gap: 2rem;
+    row-gap: 2rem;
     justify-content: space-evenly;
     p{
-        font-size: 0.9rem;
         font-weight: 600;
         margin: 0;
     }
 }
 
 .product-card{
-    width: 19rem;
-    height: 23rem;
+    max-width: 18rem;
+    max-height: 25rem;
     img{
-        height: 80%;
+        height: 75%;
     }
 }
 .product-data{
@@ -274,13 +274,6 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 8rem;
     padding: 1rem 0;
-    b{
-        font-size: 0.8rem;
-    }
-    p{
-        margin: 0;
-        font-size: 0.8rem;
-    }
 }
 .info-card{
     @include flex(flex, column, center, center);
@@ -291,16 +284,21 @@
         padding: 2px;
         margin: 1rem;
     }
+    p, b{
+        text-align: center;
+        margin: 0;
+        font-size: 0.8rem;
+    }
 }
 
 //FOOTER
 .footer-superior{
-    height: 23rem;
-    padding: 1.5rem;
+    height: 21rem;
+    padding: 1rem;
     border-top: 1px solid rgb(211, 211, 211);
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-template-rows: 14rem 4rem;
+    grid-template-rows: 14rem 3rem;
 }
 .footer-card {
     padding: 0 1rem;
@@ -339,5 +337,108 @@
     li{
         font-size: 12px;
         font-weight: 300;
+    }
+}
+
+//MOBILE
+@media only screen and (max-width:500px){
+    .shortcuts{
+        flex-wrap: wrap;
+        
+    }
+    .shortcut-card{
+        width: 5rem;
+        height: 5.5rem;
+        img{
+            height: 4rem;
+        }
+    }
+    .destacado-preview{
+        height: 30rem;
+    }
+    .four-cards-container, .products-cards-conatiner{
+        grid-template-columns: repeat(auto-fill,10rem);
+        grid-template-rows: repeat(auto-fill,17rem);
+        p{
+            font-size: .9rem;
+        }
+    }
+    .product-card{
+        max-width: 9rem;
+        max-height: 16rem;
+    }
+    .info-card{
+        justify-content: left;
+        svg{
+            width: 30px;
+            height: 30px;
+        }
+        p,b{
+            font-size: .7rem;
+        }
+    }
+    .preview-home-section,.products-section{
+        h2{
+            font-size: 1.4rem;
+        }
+    }
+    .black-button{
+        height: 2.5rem;
+        font-size: .8rem;
+        margin-top: 1.5rem;
+    }
+    .footer-superior, .footer-inferior{
+        ul, p{
+            font-size: 12px;
+        }
+        h3{
+            font-size: 1rem;
+        }
+    }
+    .socials{
+        justify-content: flex-start;
+    }
+    
+}
+
+//TABLET
+@media only screen and (min-width:501px) and (max-width:960px){
+    .shortcuts{
+        flex-wrap: wrap;
+        
+    }
+    .shortcut-card{
+        width: 5.5rem;
+        height: 6rem;
+        img{
+            height: 4.5rem;
+        }
+    }
+    .four-cards-container, .products-cards-conatiner{
+        grid-template-columns: repeat(auto-fill,13rem);
+        grid-template-rows: repeat(auto-fill,20rem);
+        p{
+            font-size: .9rem;
+        }
+    }
+    .product-card{
+        max-width: 13rem;
+        max-height: 20rem;
+    }
+    .info-card{
+        justify-content: left;
+       
+        svg{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .footer-superior, .footer-inferior{
+        ul, p{
+            font-size: 13px;
+        }
+        h3{
+            font-size: 1.2rem;
+        }
     }
 }

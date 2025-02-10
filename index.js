@@ -15,7 +15,9 @@ function showSearchSection(){
 function closeSearchSection(){
     search_section.style.display="none";
     document.getElementById("title-buttons-section").style.display="flex";
-    document.getElementById("option-menu-section").style.display="flex";
+    if(menuVisible){
+        document.getElementById("option-menu-section").style.display="flex";
+    }
     document.querySelector("main").classList.remove("disabled");
     document.querySelector("body").style.overflow="auto";
     document.querySelector("section.search-section form").reset();
@@ -105,26 +107,29 @@ window.addEventListener('click', function(event){
     }
 });
 
-//SHOW MENU WHEN CLICKING MENU BUTTON WHEN SCREEN WIDTH IS LESS THAN 700PX
+//SHOW MENU WHEN CLICKING MENU BUTTON FOR LESS THAN 700PX SCREEN
+let menuVisible=false;
 const expand_menu_button=document.getElementById("expand-menu-button");
 const option_menu_section=document.getElementById("option-menu-section");
 const ulist_navbar=document.querySelector("ul.ulist");
-window.addEventListener('resize', function(){
-    if(window.innerWidth>=700){
-        expand_menu_button.style.display="none";
-        option_menu_section.style.display="flex";
-    }
-    else{
-        expand_menu_button.style.display="inline";
-        option_menu_section.style.display="none";
-    }
-})
+// window.addEventListener('resize', function(){
+//     if(window.innerWidth>=700 && search_section.style.display==="none"){
+//         expand_menu_button.style.display="none";
+//         option_menu_section.style.display="flex";
+//     }
+//     if(this.window.innerWidth<700 && search_section.style.display==="none"){
+//         expand_menu_button.style.display="inline";
+//         option_menu_section.style.display="none";
+//     }
+// })
 expand_menu_button.addEventListener('click', function(){
     if(option_menu_section.style.display==="none"){
         option_menu_section.style.display="inline";
+        menuVisible=true;
     }
     else{
         option_menu_section.style.display="none";
+        menuVisible=false;
     }
 })
 
