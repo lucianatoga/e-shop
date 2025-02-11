@@ -121,6 +121,7 @@ header.hidden{
     list-style: none;
     background-color: white;
     border: 1px solid black;
+    z-index: 2;
     li{
         padding: 10px 5px;
     }

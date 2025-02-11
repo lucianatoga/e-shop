@@ -315,7 +315,6 @@
             text-decoration: none;
         }
     }
-    
     h3{
         font-size: 1.3rem;
         margin-bottom: 1rem;
@@ -395,8 +394,26 @@
             font-size: 1rem;
         }
     }
+    .footer-superior{
+        height: auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 15rem 7rem 3rem;
+        grid-template-areas: 'card1 card2'
+        'card3 card3'
+        'socials socials';
+    }
+
+    @for $i from 1 to 3{
+        #footer-card#{$i}{
+            grid-area: card+$i;
+        }
+    }
+    #footer-card3{
+        grid-column-start: span 2;
+    }
     .socials{
-        justify-content: flex-start;
+        grid-area: socials;
+        align-items: center;
     }
     
 }
@@ -405,7 +422,6 @@
 @media only screen and (min-width:501px) and (max-width:960px){
     .shortcuts{
         flex-wrap: wrap;
-        
     }
     .shortcut-card{
         width: 5.5rem;
@@ -427,7 +443,6 @@
     }
     .info-card{
         justify-content: left;
-       
         svg{
             width: 40px;
             height: 40px;
@@ -438,7 +453,10 @@
             font-size: 13px;
         }
         h3{
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
+    }
+    .footer-superior{
+        grid-template-rows: 16rem 2rem;
     }
 }

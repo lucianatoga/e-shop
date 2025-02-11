@@ -422,4 +422,9 @@ function showProducts(subcategory, products){
         })
     }
 }
+let i=1;
+document.querySelectorAll("div.footer-card").forEach(card=>{
+    card.id="footer-card"+i;
+    i++;
+})
 
