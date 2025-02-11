@@ -108,7 +108,7 @@ window.addEventListener('click', function(event){
 });
 
 //SHOW MENU WHEN CLICKING MENU BUTTON FOR LESS THAN 700PX SCREEN
-let menuVisible=false;
+let menuVisible=true;
 const expand_menu_button=document.getElementById("expand-menu-button");
 const option_menu_section=document.getElementById("option-menu-section");
 const ulist_navbar=document.querySelector("ul.ulist");
