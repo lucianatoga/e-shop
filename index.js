@@ -7,7 +7,6 @@ function showSearchSection(){
     search_section.style.display="flex";
     search_section.style.position="sticky";
     header.style.zIndex="10";
-    //search_section.style.top="0";
     document.querySelector("main").classList.add("disabled");
     document.querySelector("body").style.overflow="hidden";
     search_visible=true;
@@ -112,16 +111,6 @@ let menuVisible=true;
 const expand_menu_button=document.getElementById("expand-menu-button");
 const option_menu_section=document.getElementById("option-menu-section");
 const ulist_navbar=document.querySelector("ul.ulist");
-// window.addEventListener('resize', function(){
-//     if(window.innerWidth>=700 && search_section.style.display==="none"){
-//         expand_menu_button.style.display="none";
-//         option_menu_section.style.display="flex";
-//     }
-//     if(this.window.innerWidth<700 && search_section.style.display==="none"){
-//         expand_menu_button.style.display="inline";
-//         option_menu_section.style.display="none";
-//     }
-// })
 expand_menu_button.addEventListener('click', function(){
     if(option_menu_section.style.display==="none"){
         option_menu_section.style.display="inline";
@@ -165,7 +154,7 @@ function showShoppingCart(){
     if(shopping_cart.length<1){
         shopping_cart_header.innerHTML=`
         <b>Tu carrito está vacío</b>
-        <a href="./index.html"><button class="black-button">Seguir comprando</button></a>`;
+        <a href="../index.html"><button class="black-button">Seguir comprando</button></a>`;
         shopping_cart_summary.innerHTML+=`
         <b>¿Tienes una cuenta?</b>
         <p><a href="#">Inicia sesión</a> para finalizar tus compras con mayor rapidez</p>
@@ -215,10 +204,6 @@ function showShoppingCart(){
             notes_link.querySelector("ion-icon").classList.toggle("ion-icon-rotate")
             notes_link.nextElementSibling.classList.toggle("notes-textarea-visible");
         })
-        // const notes_input=shopping_cart_summary.querySelector("input.order-notes-input");
-        // notes_input.addEventListener('click', function(){
-        //     notes_input.classList.toggle("order-notes-input");
-        // })
         shopping_cart_footer.innerHTML=`
         <p><b>Subtotal</b> $${totalPrice} UYU</p>
         <button class="black-button">Pagar pedido</button>
@@ -260,7 +245,6 @@ function countProducts(){
 countProducts();
 
 function addToCart(product_selected){
-    //const product_selected=productos_stock.find((producto)=>producto.id==id);
     const shopping_cart=JSON.parse(localStorage.getItem('cart'))||[];
     const existing_product=shopping_cart.find((product)=>product.id==product_selected.id);
     existing_product ? existing_product.qty++ : shopping_cart.push({...product_selected, qty:1});
@@ -344,15 +328,9 @@ shortcuts_links.forEach(link=> link.addEventListener('click', function(e){
         const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
         link.href=url;
     }
-    else if(product==="carteras"){
-        const subcategory="carteras";
-        const category="carteras";
-        const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
-        link.href=url;
-    }
     else{
-        const subcategory="accesorios";
-        const category="accesorios";
+        const subcategory=product;
+        const category=product;
         const url=`${link.getAttribute('href')}?category=${category}&subcategory=${subcategory}`;
         link.href=url;
     }
